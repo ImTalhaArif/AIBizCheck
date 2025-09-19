@@ -1,0 +1,87 @@
+You are building a SaaS web app called **AI Employee Background Checker** based on the following requirements. 
+The app will be deployed on Vercel, so everything must be compatible with Vercel deployment.
+
+### GENERAL REQUIREMENTS
+- Use **Next.js 14 (React 18 with App Router)** for the frontend.
+- Use **TypeScript**.
+- Use **Tailwind CSS** for styling.
+- Use **shadcn/ui** for modular, accessible UI components.
+- Use a **dark theme by default** (professional HR SaaS look).
+- Structure the project with a `package.json`, `tsconfig.json`, and `next.config.js` so Vercel can build correctly.
+- Build command: `next build`
+- Output: `.next/` (default for Next.js, so Vercel works without extra config).
+- Do not include Express, FastAPI, or any custom backend servers (Vercel cannot run them).
+- Assume backend APIs already exist for employee upload, AI enrichment, and report generation. Call them using `fetch("/api/...")` endpoints that can later be wired to real services.
+
+### FEATURES TO IMPLEMENT
+1. **Authentication**
+   - Basic login/register flow with email + password.
+   - Mock authentication (store user in local state or a fake API).
+   - Role-based access (admin vs HR user).
+
+2. **Dashboard**
+   - Sidebar navigation with icons.
+   - Pages:
+     - Dashboard (summary of jobs).
+     - Employees (list of uploaded employees).
+     - Upload (single or bulk upload form).
+     - Reports (view/download background check reports).
+
+3. **Employee Upload**
+   - Single upload form (name, email, DOB, etc.).
+   - Bulk upload via CSV/Excel file.
+   - Display upload progress.
+   - On submit, call a fake API route (`/api/upload`) and show job queued.
+
+4. **Background Check Jobs**
+   - Jobs page should show:
+     - Employee name
+     - Job status (queued, processing, complete, failed)
+     - Risk score (once available)
+   - Poll a fake API to update statuses.
+
+5. **Reports**
+   - When a job is complete, user can view a detailed report page:
+     - Identity summary
+     - Professional history
+     - Social media findings
+     - AI-generated risk analysis
+     - Download PDF button (stubbed with jsPDF).
+
+6. **UI/UX**
+   - Responsive, mobile-friendly.
+   - Dark UI with Tailwind + shadcn components (cards, tables, modals, buttons, forms).
+   - Use Lucide icons.
+   - Add loading states, skeletons, and toasts for good UX.
+
+7. **API Mocking**
+   - Create an `/api` folder inside Next.js (Vercel serverless functions).
+   - Implement mock endpoints for:
+     - `/api/upload` → simulate queueing jobs.
+     - `/api/jobs` → return a list of job statuses.
+     - `/api/report/[id]` → return fake employee report JSON.
+   - This ensures everything runs on Vercel without external servers.
+
+8. **Security & Compliance (Frontend Simulation)**
+   - Show consent checkbox before background check runs.
+   - Show privacy policy & data deletion page (static content).
+   - All sensitive data in mock responses should be placeholder text.
+
+### EXTRA NICE-TO-HAVES
+- Add a settings page (theme toggle, user profile).
+- Add audit log page showing user actions (from mock data).
+- Implement table filtering/searching with react-query + tanstack table.
+
+---
+
+### DEVELOPMENT STYLE
+- Write clean, well-structured code.
+- Separate UI components in a `components/` folder.
+- Use React hooks for state management.
+- Use React Query (`@tanstack/react-query`) for API data fetching.
+- Ensure the project builds locally with `npm run build` and runs on Vercel.
+
+---
+
+Now generate the full Next.js project with this structure and features. 
+Make sure it is deployable to Vercel with no backend incompatibilities.
