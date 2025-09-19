@@ -1,0 +1,181 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(215, 28%, 8%);
+  --foreground: hsl(213, 31%, 91%);
+  --card: hsl(215, 25%, 12%);
+  --card-foreground: hsl(213, 31%, 91%);
+  --popover: hsl(215, 25%, 12%);
+  --popover-foreground: hsl(213, 31%, 91%);
+  --primary: hsl(199, 89%, 48%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(215, 25%, 16%);
+  --secondary-foreground: hsl(213, 31%, 91%);
+  --muted: hsl(215, 19%, 20%);
+  --muted-foreground: hsl(215, 10%, 70%);
+  --accent: hsl(160, 84%, 39%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 63%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(215, 20%, 25%);
+  --input: hsl(215, 20%, 25%);
+  --ring: hsl(199, 89%, 48%);
+  --chart-1: hsl(199, 89%, 48%);
+  --chart-2: hsl(160, 84%, 39%);
+  --chart-3: hsl(42, 92%, 56%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(215, 25%, 12%);
+  --sidebar-foreground: hsl(213, 31%, 91%);
+  --sidebar-primary: hsl(199, 89%, 48%);
+  --sidebar-primary-foreground: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(215, 25%, 16%);
+  --sidebar-accent-foreground: hsl(199, 89%, 48%);
+  --sidebar-border: hsl(215, 20%, 25%);
+  --sidebar-ring: hsl(199, 89%, 48%);
+  --radius: 0.5rem;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  --background: hsl(215, 28%, 8%);
+  --foreground: hsl(213, 31%, 91%);
+  --card: hsl(215, 25%, 12%);
+  --card-foreground: hsl(213, 31%, 91%);
+  --popover: hsl(215, 25%, 12%);
+  --popover-foreground: hsl(213, 31%, 91%);
+  --primary: hsl(199, 89%, 48%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(215, 25%, 16%);
+  --secondary-foreground: hsl(213, 31%, 91%);
+  --muted: hsl(215, 19%, 20%);
+  --muted-foreground: hsl(215, 10%, 70%);
+  --accent: hsl(160, 84%, 39%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 63%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(215, 20%, 25%);
+  --input: hsl(215, 20%, 25%);
+  --ring: hsl(199, 89%, 48%);
+  --chart-1: hsl(199, 89%, 48%);
+  --chart-2: hsl(160, 84%, 39%);
+  --chart-3: hsl(42, 92%, 56%);
+  --chart-4: hsl(147, 78%, 42%);
+  --chart-5: hsl(341, 75%, 51%);
+  --sidebar: hsl(215, 25%, 12%);
+  --sidebar-foreground: hsl(213, 31%, 91%);
+  --sidebar-primary: hsl(199, 89%, 48%);
+  --sidebar-primary-foreground: hsl(210, 40%, 98%);
+  --sidebar-accent: hsl(215, 25%, 16%);
+  --sidebar-accent-foreground: hsl(199, 89%, 48%);
+  --sidebar-border: hsl(215, 20%, 25%);
+  --sidebar-ring: hsl(199, 89%, 48%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Custom scrollbar styles for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Enhanced button and interactive element styles */
+.hover\:shadow-lg:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Risk level specific colors */
+.risk-low {
+  color: hsl(160, 84%, 39%);
+}
+
+.risk-medium {
+  color: hsl(42, 92%, 56%);
+}
+
+.risk-high {
+  color: hsl(0, 63%, 60%);
+}
+
+/* Status indicator animations */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Professional gradient backgrounds for cards */
+.gradient-card {
+  background: linear-gradient(135deg, hsl(215, 25%, 12%) 0%, hsl(215, 28%, 8%) 100%);
+}
+
+/* Enhanced focus styles for accessibility */
+.focus-visible\:ring-2:focus-visible {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color);
+  --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(2px + var(--tw-ring-offset-width)) var(--tw-ring-color);
+  box-shadow: var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow, 0 0 #0000);
+  --tw-ring-color: hsl(var(--ring));
+}
+
+/* Improved table styling */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* Enhanced modal backdrop */
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  background: hsla(215, 28%, 8%, 0.8);
+}
+
+/* Professional tooltip styling */
+.tooltip {
+  background: hsl(215, 25%, 12%);
+  border: 1px solid hsl(215, 20%, 25%);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}

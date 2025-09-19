@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(215, 28%, 8%);
+  --foreground: hsl(213, 31%, 91%);
+  --card: hsl(215, 25%, 12%);
+  --card-foreground: hsl(213, 31%, 91%);
+  --popover: hsl(215, 25%, 12%);
+  --popover-foreground: hsl(213, 31%, 91%);
+  --primary: hsl(199, 89%, 48%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(215, 25%, 16%);
+  --secondary-foreground: hsl(213, 31%, 91%);
+  --muted: hsl(215, 19%, 20%);
+  --muted-foreground: hsl(215, 10%, 70%);
+  --accent: hsl(160, 84%, 39%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 63%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(215, 20%, 25%);
+  --input: hsl(215, 20%, 25%);
+  --ring: hsl(199, 89%, 48%);
+  --radius: 0.5rem;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+.dark {
+  --background: hsl(215, 28%, 8%);
+  --foreground: hsl(213, 31%, 91%);
+  --card: hsl(215, 25%, 12%);
+  --card-foreground: hsl(213, 31%, 91%);
+  --popover: hsl(215, 25%, 12%);
+  --popover-foreground: hsl(213, 31%, 91%);
+  --primary: hsl(199, 89%, 48%);
+  --primary-foreground: hsl(210, 40%, 98%);
+  --secondary: hsl(215, 25%, 16%);
+  --secondary-foreground: hsl(213, 31%, 91%);
+  --muted: hsl(215, 19%, 20%);
+  --muted-foreground: hsl(215, 10%, 70%);
+  --accent: hsl(160, 84%, 39%);
+  --accent-foreground: hsl(210, 40%, 98%);
+  --destructive: hsl(0, 63%, 60%);
+  --destructive-foreground: hsl(210, 40%, 98%);
+  --border: hsl(215, 20%, 25%);
+  --input: hsl(215, 20%, 25%);
+  --ring: hsl(199, 89%, 48%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* Custom scrollbar styles for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--foreground));
+}
+
+/* Loading animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
